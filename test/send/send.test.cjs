@@ -8,7 +8,9 @@ let fs = require('fs');
 let http = require('http');
 let path = require('path');
 let request = require('supertest');
-let send = require('../src/send.cjs');
+let send = require('../../src/send.cjs');
+
+const base_fixtures = path.join(__dirname, "./fixtures");
 
 // test server
 
@@ -160,7 +162,7 @@ describe('send(file).pipe(res)', function () {
 
   it('should 404 if file disappears after stat, before open', function (done) {
     let app = http.createServer(function (req, res) {
-      send(req, req.url, { root: 'test/fixtures' })
+      send(req, req.url, { root: base_fixtures })
         .on('file', function () {
           // simulate file ENOENT after on open, after stat
           let fn = this.send;
@@ -178,7 +180,7 @@ describe('send(file).pipe(res)', function () {
 
   it('should 500 on file stream error', function (done) {
     let app = http.createServer(function (req, res) {
-      send(req, req.url, { root: 'test/fixtures' })
+      send(req, req.url, { root: base_fixtures })
         .on('stream', function (stream) {
           // simulate file error
           stream.on('open', function () {
@@ -379,7 +381,7 @@ describe('send(file).pipe(res)', function () {
 
     it('should respond with an HTML redirect', function (done) {
       let app = http.createServer(function (req, res) {
-        send(req, req.url.replace('/snow', '/snow ☃'), { root: 'test/fixtures' })
+        send(req, req.url.replace('/snow', '/snow ☃'), { root: base_fixtures })
           .pipe(res);
       });
 
@@ -896,7 +898,7 @@ describe('send(file).pipe(res)', function () {
   describe('.maxage()', function () {
     it('should default to 0', function (done) {
       let app = http.createServer(function (req, res) {
-        send(req, 'test/fixtures/name.txt')
+        send(req, path.join(base_fixtures, "/name.txt"))
           .maxage(undefined)
           .pipe(res);
       });
@@ -908,7 +910,7 @@ describe('send(file).pipe(res)', function () {
 
     it('should floor to integer', function (done) {
       let app = http.createServer(function (req, res) {
-        send(req, 'test/fixtures/name.txt')
+        send(req, path.join(base_fixtures, "/name.txt"))
           .maxage(1234)
           .pipe(res);
       });
@@ -920,7 +922,7 @@ describe('send(file).pipe(res)', function () {
 
     it('should accept string', function (done) {
       let app = http.createServer(function (req, res) {
-        send(req, 'test/fixtures/name.txt')
+        send(req, path.join(base_fixtures, "/name.txt"))
           .maxage('30d')
           .pipe(res);
       });
@@ -932,7 +934,7 @@ describe('send(file).pipe(res)', function () {
 
     it('should max at 1 year', function (done) {
       let app = http.createServer(function (req, res) {
-        send(req, 'test/fixtures/name.txt')
+        send(req, path.join(base_fixtures, "/name.txt"))
           .maxage(Infinity)
           .pipe(res);
       });
@@ -1466,7 +1468,7 @@ describe('send.mime', function () {
   });
 
   describe('.default_type', function () {
-    beforeAll(function () {
+    beforeEach(function () {
       this.default_type = send.mime.default_type;
     });
 
