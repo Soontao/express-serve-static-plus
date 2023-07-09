@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "newLine": "lf",
+    "target": "ES2021",
+    "module": "CommonJS",
+    "outDir": "lib",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "lib": [
+      "ES6"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": []
+}

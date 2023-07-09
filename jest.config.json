@@ -1,0 +1,8 @@
+{
+  "testTimeout": 30000,
+  "collectCoverageFrom": ["src/**/*", "!**/node_modules/**"],
+  "transform": {},
+  "testEnvironment": "node",
+  "testRegex": "/test/.*\\.test\\.[c|m]?js$",
+  "moduleFileExtensions": ["js", "mjs", "json", "cjs"]
+}
