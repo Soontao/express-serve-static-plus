@@ -11,7 +11,6 @@
  */
 
 const createError = require('http-errors');
-const debug = require('debug')('send');
 const deprecate = require('depd')('send');
 const destroy = require('destroy');
 const encodeUrl = require('encodeurl');
@@ -27,6 +26,7 @@ const path = require('path');
 const statuses = require('statuses');
 const Stream = require('stream');
 const util = require('util');
+const debug = util.debug("send");
 
 /**
  * Path function references.
