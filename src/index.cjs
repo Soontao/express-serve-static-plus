@@ -1,3 +1,3 @@
-const a = 1;
+const serveStatic = require("./static.cjs");
 
-module.exports = { a };
+module.exports = serveStatic;
