@@ -896,7 +896,7 @@ function collapseLeadingSlashes(str) {
   }
 
   return i > 1
-    ? '/' + str.substring(i)
+    ? '/' + str.slice(i)
     : str;
 }
 

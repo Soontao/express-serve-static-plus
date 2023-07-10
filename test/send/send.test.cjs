@@ -2,13 +2,13 @@
 
 process.env.NO_DEPRECATION = 'send';
 
-let after = require('after');
-let assert = require('assert');
-let fs = require('fs');
-let http = require('http');
-let path = require('path');
-let request = require('supertest');
-let send = require('../../src/send.cjs');
+const after = require('after');
+const assert = require('assert');
+const fs = require('fs');
+const http = require('http');
+const path = require('path');
+const request = require('supertest');
+const send = require('../../src/send.cjs');
 
 const base_fixtures = path.join(__dirname, "./fixtures");
 

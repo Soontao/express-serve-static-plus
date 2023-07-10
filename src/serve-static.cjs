@@ -8,6 +8,7 @@
 
 /**
  * Module dependencies.
+ * 
  * @private
  */
 
@@ -20,6 +21,7 @@ const url = require('url');
 
 /**
  * Module exports.
+ * 
  * @public
  */
 
@@ -32,7 +34,6 @@ module.exports.mime = send.mime;
  * @return {function}
  * @public
  */
-
 function serveStatic(root, options) {
   if (!root) {
     throw new TypeError('root path required');
@@ -86,7 +87,7 @@ function serveStatic(root, options) {
     let path = parseUrl(req).pathname;
 
     // make sure redirect occurs at mount
-    if (path === '/' && originalUrl.pathname.substr(-1) !== '/') {
+    if (path === '/' && originalUrl.pathname.slice(- 1) !== '/') {
       path = '';
     }
 
@@ -126,6 +127,7 @@ function serveStatic(root, options) {
 
 /**
  * Collapse all leading slashes into a single slash
+ * @param {string} str
  * @private
  */
 function collapseLeadingSlashes(str) {
@@ -137,7 +139,7 @@ function collapseLeadingSlashes(str) {
   }
 
   return i > 1
-    ? '/' + str.substr(i)
+    ? '/' + str.slice(i)
     : str;
 }
 
