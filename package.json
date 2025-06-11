@@ -39,7 +39,7 @@
     "@types/node": "^22.0.0",
     "after": "^0.8.2",
     "eslint": "^8.44.0",
-    "jest": "^29.6.1",
+    "jest": "^30.0.0",
     "prettier": "^3.0.0",
     "safe-buffer": "5.2.1",
     "supertest": "7.1.0"
