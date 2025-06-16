@@ -35,7 +35,7 @@
     "statuses": "2.0.2"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.2",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.0.0",
     "after": "^0.8.2",
     "eslint": "^8.44.0",
