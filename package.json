@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.0",
     "after": "^0.8.2",
     "eslint": "^8.44.0",
     "jest": "^30.0.0",
